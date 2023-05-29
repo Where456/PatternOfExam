@@ -70,3 +70,4 @@ class NoteDAO:
 
         self.session.add(note)
         self.session.commit()
+
