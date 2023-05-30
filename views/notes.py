@@ -16,7 +16,7 @@ class NotesView(Resource):
 
     def post(self):
         req_json = request.json
-        movie = note_service.create(req_json)
+        note = note_service.create(req_json)
         return f"Note has been created.", 201
 
 
@@ -31,9 +31,9 @@ class MovieView(Resource):
         req_json = request.json
         if "id" not in req_json:
             req_json["id"] = bid
-        note_service.update(req_json)
+        note = note_service.update(req_json)
         return f"Note with ID {bid} has been updated.", 204
 
     def delete(self, bid):
-        note_service.delete(bid)
+        note = note_service.delete(bid)
         return f"Note with ID {bid} has been deleted.", 204
