@@ -7,4 +7,3 @@ COPY . .
 COPY docker_config.py default_config.py
 
 CMD ["python", "app.py"]
-
