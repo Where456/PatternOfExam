@@ -1,10 +1,10 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
-from app.dao.models.note import NoteSchema
-from app.dao import NoteDAO
-from app.service.note import NoteService
-from app.setup_db import db
+from application.dao.models.note import NoteSchema
+from application.dao import NoteDAO
+from application.service.note import NoteService
+from application.setup_db import db
 
 notes_ns = Namespace('notes')
 note_service = NoteService(dao=NoteDAO(session=db.session))

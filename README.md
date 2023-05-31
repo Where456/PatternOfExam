@@ -10,7 +10,7 @@ URL: http://localhost:10001/notes
 Description: Gets all data from the database.
 
 Example response:
-![img.png](app/static/img.png)
+![img.png](application/static/img.png)
 ---
 ### 2. Adding new data
 Method: POST
@@ -21,7 +21,7 @@ Description: Adds new data to the database.
 Request body: JSON object with a text field to specify the title and content of the note.
 
 Example request:
-![img_2.png](app/static/img_2.png)
+![img_2.png](application/static/img_2.png)
 ---
 ### 3. Changing data
 Method: PUT
@@ -32,7 +32,7 @@ Description: Changes the data in the database for the specified id.
 Request body: JSON object with title and content fields to specify the new title and content of the note.
 
 Example request:
-![img_3.png](app/static/img_3.png)
+![img_3.png](application/static/img_3.png)
 ---
 ### 4. Deleting data
 Method: DELETE
@@ -41,4 +41,4 @@ URL: http://localhost:10001/delete/{id}
 Description: Deletes data from the database for the specified id.
 
 Example request:
-![img_5.png](app/static/img_5.png)
+![img_5.png](application/static/img_5.png)

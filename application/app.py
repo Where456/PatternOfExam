@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_restx import Api
 
+from application.views.notes import notes_ns
 from config import Config
 from setup_db import db
-from app.views import notes_ns
 
 
 def create_app(config_object):
