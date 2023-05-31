@@ -1,10 +1,13 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
-from dao.models.note import NoteSchema
-from implemented import note_service
+from app.dao.models.note import NoteSchema
+from app.dao import NoteDAO
+from app.service.note import NoteService
+from app.setup_db import db
 
 notes_ns = Namespace('notes')
+note_service = NoteService(dao=NoteDAO(session=db.session))
 
 
 @notes_ns.route('/')
@@ -31,9 +34,9 @@ class MovieView(Resource):
         req_json = request.json
         if "id" not in req_json:
             req_json["id"] = bid
-        note = note_service.update(req_json)
-        return f"Note with ID {bid} has been updated.", 204
+        note_service.update(req_json)
+        return "", 204
 
     def delete(self, bid):
-        note = note_service.delete(bid)
-        return f"Note with ID {bid} has been deleted.", 204
+        note_service.delete(bid)
+        return "", 204

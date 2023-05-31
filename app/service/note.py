@@ -1,4 +1,4 @@
-from dao.note import NoteDAO
+from app.dao import NoteDAO
 
 
 class NoteService:

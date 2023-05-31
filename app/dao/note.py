@@ -1,4 +1,4 @@
-from dao.models.note import Note
+from app.dao.models.note import Note
 
 
 class NoteDAO:

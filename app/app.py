@@ -3,7 +3,7 @@ from flask_restx import Api
 
 from config import Config
 from setup_db import db
-from views.notes import notes_ns
+from app.views import notes_ns
 
 
 def create_app(config_object):
@@ -26,7 +26,7 @@ def create_data(app, db):
 
 
 app = create_app(Config())
-app.debug = False
+app.debug = True
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=10001, debug=False)
+    app.run(host="localhost", port=10001, debug=True)
