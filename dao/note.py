@@ -36,10 +36,10 @@ class NoteDAO:
             Returns:
             - An instance of the Note object representing the newly created record.
         """
-        ent = Note(**note_d)
-        self.session.add(ent)
+        note = Note(**note_d)
+        self.session.add(note)
         self.session.commit()
-        return ent
+        return note
 
     def delete(self, rid):
         """
