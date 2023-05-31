@@ -23,7 +23,6 @@ class NotesView(Resource):
         return f"Note has been created.", 201
 
 
-
 @notes_ns.route('/<int:bid>')
 class MovieView(Resource):
     def get(self, bid):
