@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restx import Api
 
-from application.views.notes import notes_ns
+from views.notes import notes_ns
 from config import Config
 from setup_db import db
 
