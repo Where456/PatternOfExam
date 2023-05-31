@@ -2,34 +2,30 @@ from flask import request
 from flask_restx import Resource, Namespace
 
 from dao.models.note import NoteSchema
-from dao.note import NoteDAO
-from service.note import NoteService
-from setup_db import db
+from implemented import note_service
 
+notes_schema = NoteSchema(many=True)
+note_schema = NoteSchema()
 notes_ns = Namespace('notes')
-note_service = NoteService(dao=NoteDAO(session=db.session))
-
 
 
 @notes_ns.route('/')
 class NotesView(Resource):
     def get(self):
-        all_movies = note_service.get_all()
-        res = NoteSchema(many=True).dump(all_movies)
-        return res, 200
+        notes = note_service.get_all()
+        return notes_schema.dump(notes), 200
 
     def post(self):
         req_json = request.json
         note = note_service.create(req_json)
-        return f"Note has been created.", 201
+        return f"Note has been created.", 201, 201, {"location": f"/notes/{note.id}"}
 
 
 @notes_ns.route('/<int:bid>')
 class MovieView(Resource):
     def get(self, bid):
-        b = note_service.get_one(bid)
-        sm_d = NoteSchema().dump(b)
-        return sm_d, 200
+        note = note_service.get_one(bid)
+        return note_schema.dump(note), 200
 
     def put(self, bid):
         req_json = request.json
