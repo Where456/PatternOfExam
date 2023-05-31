@@ -18,7 +18,7 @@ class NotesView(Resource):
     def post(self):
         req_json = request.json
         note = note_service.create(req_json)
-        return f"Note has been created.", 201, 201, {"location": f"/notes/{note.id}"}
+        return f"Note has been created.", 201, {"location": f"/notes/{note.id}"}
 
 
 @notes_ns.route('/<int:bid>')
