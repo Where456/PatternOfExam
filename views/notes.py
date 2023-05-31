@@ -9,6 +9,7 @@ from setup_db import db
 notes_ns = Namespace('notes')
 note_service = NoteService(dao=NoteDAO(session=db.session))
 
+
 @notes_ns.route('/')
 class NotesView(Resource):
     def get(self):
